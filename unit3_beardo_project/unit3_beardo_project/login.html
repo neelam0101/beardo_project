@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login To Your Account | Beardo</title>
+    <link rel="stylesheet" href= 
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="account.css"> -->
+    <script
+    src="https://kit.fontawesome.com/e3ddd9c631.js"
+    crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="login.css">
+<style>
+    #a{
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+    <div id="header"></div>
+    <div style="margin-left: 6%;padding-top: 150px;" onclick="window.location.href='index.html' ">Home/<span style="color:red">Account</span></div>
+    <h2 style="margin-left: 7%; padding: 1.5%;">ACCOUNT</h2>
+    <div id="account_main_div">
+        <div id="signup_div" class="box">
+            <form action="" id="signupform">
+            <div class="input_text"><div> <b> BECOME A MEMBER </b></div>
+            <div>Please file below details and become a member.</div></div>
+            <div class="signup_input">
+                <span><input type="text" placeholder="First name" id="f_name"></span> <span><input id="l_name" type="text" placeholder="Last name"></span>
+            </div>
+            <div class="signup_input">
+                <span><input type="text" id="email" placeholder="Email address"></span> <span><input id="mobile" type="number" placeholder="Mobile"></span>
+            </div>
+            
+            <div class="signup_input">
+                <span><input type="password" name="password" id="password" placeholder="Password"></span> <span><input type="password" name="password" id="confirm_password" placeholder="Confirm password"></span>
+            </div>
+            <div id="warning"></div>
+            <input id="signup_btn" type="submit" value="BECOME A MEMBER"></button>
+        </form>
+        </div>
+        <div id="login_div" class="box">
+            <div class="input_text">
+                <div class="bold"> <b>ALREADY A MEMBER?</b> </div>
+             <span>Please enter your email and <br> password to login</span>
+
+            </div>
+            <form action="" id="loginform">
+            <input type="text" id="login_email" placeholder="Email address">
+            <input type="password" name="login_password" id="login_password" placeholder="Password">
+
+             <input type="submit" id="login_btn" value="LOGIN">
+</form>
+            <a  id="a" href="https://www.beardo.in/forgot-password"><p style="color:red;">forgot password?</p></a>
+           <div class="text_center" style="color:grey">OR</div>
+
+            <div class="flex" style="margin-bottom: 5%;">
+                <div class="text_center"  style="padding:4px 2px;background-color:rgb(45,70,185);color:white">
+                    Login with Facebook
+                </div>
+                <div class="text_center" style="padding:4px 2px;background-color: beige;">Login with Google</div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer_body"></div>
+    
+</body>
+</html>
+<script type="module">
+ var warning=document.getElementById("warning")
+    import {header} from "./components/header1.js";
+    document.getElementById("header").innerHTML=header();
+
+
+    var sign_up=document.getElementById("signup_btn");
+    // sign_up.addEventListener("click",function signup(event){
+    //     let user={}
+    //     var f_name=document.getElementById("f_name").value;
+    //     var l_name=document.getElementById("l_name").value;
+    //     var emailID=document.getElementById("email").value;
+    //     var mob=document.getElementById("mobile").value;
+    //     var pass=document.getElementById("password").value;
+   
+  
+    document.querySelector("#signupform").addEventListener("submit",formsubmit);
+
+var userstack = JSON.parse(localStorage.getItem("userdata"))||[];
+
+function formsubmit(event){
+    event.preventDefault();
+
+    var name = document.querySelector("#f_name").value;
+    var email = document.querySelector("#email").value;
+    var pass = document.querySelector("#password").value;
+    var mobil = document.querySelector("#mobile").value;
+    var lastname = document.querySelector("#l_name").value;
+
+    
+    var userdata ={
+        username:name,
+        useremail:email,
+        userpass:pass,
+        usermobile:mobil,
+        userlastname:lastname
+    }
+    userstack.push(userdata);
+       
+    localStorage.setItem("userdata",JSON.stringify(userstack));
+    warning.innerHTML="Login to Continue";
+    warning.style.color="red";
+       alert("Register Successfull");
+}
+
+ document.querySelector("#loginform").addEventListener("submit",singin);
+
+       
+
+       function singin(event){
+        var userdetail = JSON.parse(localStorage.getItem("userdata"))||[];
+       console.log(userdetail);
+       event.preventDefault();
+       var email = document.querySelector("#login_email").value;
+        var pass = document.querySelector("#login_password").value;
+       userdetail.map(function (elem){
+ 
+ if(elem.useremail==email && elem.userpass)
+ {
+
+    localStorage.setItem("username",elem.username)
+    alert("Login Successfull");
+     window.location.href="index.html";
+ }
+
+
+
+       })
+        
+          
+        
+        
+      }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    import {footer} from "./components/footer.js"
+    var foot=document.querySelector(".footer_body");
+    foot.innerHTML=footer()
+    
+                                                                                                                                                                            //jagamohan panda{fw14_011}
+    
+</script>                                                                   
