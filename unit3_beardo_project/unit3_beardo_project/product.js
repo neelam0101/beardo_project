@@ -16,7 +16,7 @@ let hair_data = JSON.parse(localStorage.getItem("hair_data_local"));
 let body_data = JSON.parse(localStorage.getItem("body_data_local"));
 let fragrance_data = JSON.parse(localStorage.getItem("fragrance_data_local"));
 let beared_fashion_data = JSON.parse(localStorage.getItem("beared_fashion_data_local"));
-let trimmers_data = JSON.parse(localStorage.getItem("trimmers_data"));
+let trimmers_data = JSON.parse(localStorage.getItem("trimmers_data_local"));
 
 //top fixed div data
 var combodata = [
