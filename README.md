@@ -70,4 +70,4 @@ https://medium.com/@neelam_fw15_449/clone-of-beardo-in-including-frontend-backen
 
 
 ### Netlify Link
-https://beardo-project.netlify.app
+https://beardoproject.netlify.app
